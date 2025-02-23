@@ -10,18 +10,21 @@
 </script>
 
 <ModeWatcher />
+<div class="min-h-screen flex flex-col justify-between">
+  <header class="flex justify-between items-center px-8 py-4 border-y-[1px]">
+    <div class="flex">
+      <p>App Name</p>
+    </div>
+    <Button variant="ghost" on:click={toggleMode} class="justify-self-end">
+      <Sun class="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+      <Moon class=" h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+      <span class="sr-only">Toggle theme</span>
+    </Button>
+  </header>
 
-<div class="flex justify-between items-center rounded-none px-8 mb-8 py-4 border-y-[1px]">
-  <div class="flex">
-    <p>App Name</p>
+  <div class=" p-8 m-8 flex-1 flex justify-center items-center">
+    {@render children()}
   </div>
-  <Button variant="ghost" on:click={toggleMode} class="justify-self-end">
-    <Sun class="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-    <Moon class="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-    <span class="sr-only">Toggle theme</span>
-  </Button>
-</div>
 
-<div class="p-8 m-8 flex justify-center items-center">
-  {@render children()}
+  <footer class="flex justify-center items-center px-8 py-4 border-y-[1px]">Foooter</footer>
 </div>
