@@ -22,7 +22,7 @@
     </Button>
   </header>
 
-  <div class=" p-8 m-8 flex-1 flex justify-center items-center">
+  <div class=" p-8 m-8 flex-1 flex flex-col justify-center items-center">
     {@render children()}
   </div>
 
