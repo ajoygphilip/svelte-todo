@@ -26,5 +26,5 @@
     {@render children()}
   </div>
 
-  <footer class="flex justify-center items-center px-8 py-4 border-y-[1px]">Foooter</footer>
+  <footer class="flex justify-center items-center px-8 p-4 border-y-[1px]">Foooter</footer>
 </div>

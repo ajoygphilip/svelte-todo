@@ -78,6 +78,6 @@
 
 @layer utilities {
   .listitem {
-    @apply border-[1px] p-4 min-w-96 bg-primary-foreground hover:bg-gray-800;
+    @apply border-[1px] p-4 bg-primary-foreground hover:bg-gray-800;
   }
 }

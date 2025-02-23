@@ -15,13 +15,13 @@
 <div class="flex flex-col h-full p-2 w-full flex-1">
   <h2 class="m-4 text-xl self-start">Inbox</h2>
 
-  <div class="flex-1 overflow-auto p-2">
+  <div class="flex-1 overflow-auto p-2 max-h-[60vh]">
     {#each todos as todo, i (i)}
       <div class="listitem">{todo}</div>
     {/each}
   </div>
 
-  <form onsubmit={addTodos} class="w-full">
+  <form onsubmit={addTodos} class="w-full mt-16">
     <input type="text" class="w-full p-4" placeholder="Add a todo..." />
   </form>
 </div>
