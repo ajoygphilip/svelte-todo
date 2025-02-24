@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { Todo } from '$lib/types';
-
+  import TodoItem from '$lib/components/TodoItem.svelte';
   const todos: Todo[] = $state([
     { title: 'Buy milk... or a cow? 🤔', completed: true },
     { title: 'Learn how to say no... starting tomorrow.', completed: false },
@@ -28,7 +28,7 @@
 
   <div class="flex-1 overflow-auto p-2 max-h-[50vh]">
     {#each todos.filter(a => 1) as todo, i (i)}
-      <div class="listitem"><p class:line-through={todo.completed}>{todo.title}</p></div>
+      <TodoItem {todo} />
     {/each}
   </div>
 
