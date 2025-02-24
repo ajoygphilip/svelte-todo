@@ -26,9 +26,9 @@
 <div class="flex flex-col h-full p-2 w-full flex-1">
   <h2 class="m-4 text-xl self-start">Inbox</h2>
 
-  <div class="flex-1 overflow-auto p-2 max-h-[60vh]">
-    {#each todos as todo, i (i)}
-      <div class="listitem">{todo}</div>
+  <div class="flex-1 overflow-auto p-2 max-h-[50vh]">
+    {#each todos.filter(a => 1) as todo, i (i)}
+      <div class="listitem"><p class:line-through={todo.completed}>{todo.title}</p></div>
     {/each}
   </div>
 
