@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { Todo } from '$lib/types';
+  import { todos } from '$lib/store';
   import TodoItem from '$lib/components/TodoItem.svelte';
 
   let hideCompleted = $state(true);
@@ -9,7 +10,7 @@
     const form = e.target as HTMLFormElement;
     const input = form.querySelector('input') as HTMLInputElement;
     let title = input?.value;
-    todos.push({ title, completed: false });
+    todos.update(cur => [...cur, { title, completed: false }]);
     input.value = '';
   }
 </script>
