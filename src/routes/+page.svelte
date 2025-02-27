@@ -17,8 +17,15 @@
 </script>
 
 <div class="flex flex-col h-full p-2 w-full flex-1">
-  <h2 class="m-4 text-xl self-start">Inbox</h2>
-  <input type="checkbox" bind:checked={hideCompleted} />
+  <div class="flex p-4 flex-row items-center">
+    <h2 class=" text-xl self-start">Inbox</h2>
+    <div class="ml-auto text-sm justify-self-end">
+      <label for=""
+        >Show Completed
+        <input type="checkbox" bind:checked={hideCompleted} />
+      </label>
+    </div>
+  </div>
 
   <div class="flex-1 overflow-auto p-2 max-h-[50vh]">
     {#each $todos.filter(a => !a.completed || hideCompleted) as todo, i (i)}
