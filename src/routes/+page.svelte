@@ -1,6 +1,5 @@
 <script lang="ts">
-  import type { Todo } from '$lib/types';
-  import { todos } from '$lib/store';
+  import { todos } from '$lib/state.svelte';
   import TodoItem from '$lib/components/TodoItem.svelte';
 
   let hideCompleted = $state(true);
@@ -11,9 +10,16 @@
     const input = form.querySelector('input') as HTMLInputElement;
     const id = crypto.randomUUID();
     let title = input?.value;
-    todos.update(cur => [...cur, { id, title, completed: false }]);
+    todos.push({ id, title, completed: false });
     input.value = '';
   }
+
+  $effect(() => {
+    if (typeof window !== 'undefined') {
+      console.log('from store');
+      localStorage.setItem('todos', JSON.stringify(todos));
+    }
+  });
 </script>
 
 <div class="flex flex-col h-full p-2 w-full flex-1">
@@ -28,7 +34,7 @@
   </div>
 
   <div class="flex-1 overflow-auto p-2 max-h-[50vh]">
-    {#each $todos.filter(a => !a.completed || hideCompleted) as todo, i (i)}
+    {#each todos.filter(a => !a.completed || hideCompleted) as todo, i (i)}
       <TodoItem {todo} />
     {/each}
   </div>
