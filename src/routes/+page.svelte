@@ -1,17 +1,8 @@
 <script lang="ts">
   import type { Todo } from '$lib/types';
   import TodoItem from '$lib/components/TodoItem.svelte';
-  const todos: Todo[] = $state([
-    { title: 'Buy milk... or a cow? 🤔', completed: true },
-    { title: 'Learn how to say no... starting tomorrow.', completed: false },
-    { title: 'Water the plants before they become cacti. 🌵', completed: false },
-    { title: "Google 'How to be productive'... later.", completed: false },
-    { title: 'Remind myself to stop forgetting things.', completed: false },
-    { title: "Take a nap and call it 'self-care'. 😴", completed: false },
-    { title: 'Convince my cat that I’m in charge. 🐱', completed: false },
-    { title: 'Actually read the terms & conditions. (Just kidding.)', completed: false },
-    { title: "Put 'wake up' on the list so I can cross something off.", completed: false }
-  ]);
+
+  let hideCompleted = $state(true);
 
   function addTodos(e: Event) {
     e.preventDefault();
@@ -25,9 +16,10 @@
 
 <div class="flex flex-col h-full p-2 w-full flex-1">
   <h2 class="m-4 text-xl self-start">Inbox</h2>
+  <input type="checkbox" bind:checked={hideCompleted} />
 
   <div class="flex-1 overflow-auto p-2 max-h-[50vh]">
-    {#each todos.filter(a => 1) as todo, i (i)}
+    {#each $todos.filter(a => !a.completed || hideCompleted) as todo, i (i)}
       <TodoItem {todo} />
     {/each}
   </div>
