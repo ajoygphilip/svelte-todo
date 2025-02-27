@@ -13,7 +13,6 @@ export const todos = writable(getInitialTodos());
 
 todos.subscribe(value => {
   if (typeof window !== 'undefined') {
-    console.log('updated from subscribe');
     localStorage.setItem('todos', JSON.stringify(value));
   }
 });
