@@ -9,8 +9,9 @@
     e.preventDefault();
     const form = e.target as HTMLFormElement;
     const input = form.querySelector('input') as HTMLInputElement;
+    const id = crypto.randomUUID();
     let title = input?.value;
-    todos.update(cur => [...cur, { title, completed: false }]);
+    todos.update(cur => [...cur, { id, title, completed: false }]);
     input.value = '';
   }
 </script>
