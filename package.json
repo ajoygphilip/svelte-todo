@@ -28,6 +28,8 @@
 		"vite": "^6.0.0"
 	},
 	"dependencies": {
+		"@supabase/ssr": "^0.5.2",
+		"@supabase/supabase-js": "^2.49.1",
 		"mode-watcher": "^0.5.1",
 		"svelte-radix": "^2.0.1"
 	}
