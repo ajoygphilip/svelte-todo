@@ -36,7 +36,7 @@
         {user.email}
         <div><a href="signout">sign out</a></div>
       {:else}
-        <div><a href="login">login</a></div>
+        <div><a href="auth">login</a></div>
       {/if}
     </div>
 
