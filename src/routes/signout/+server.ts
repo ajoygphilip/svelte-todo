@@ -2,11 +2,9 @@ import { error, redirect } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 
 export const GET: RequestHandler = async ({ locals }) => {
-  console.log('signing out');
   const { error: err } = await locals.supabase.auth.signOut();
 
   if (err) {
-    console.log(err);
     throw error(500, 'Something went wrong logging you out.');
   }
 
