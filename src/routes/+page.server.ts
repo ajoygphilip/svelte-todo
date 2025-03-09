@@ -36,8 +36,6 @@ export const actions: Actions = {
 
   updateCompleted: async ({ request, locals, url }) => {
     const formData = await request.formData();
-    console.log("mark completed todo from action");
-    console.log(formData);
 
     const { data, error } = await locals.supabase
       .from("todo")
