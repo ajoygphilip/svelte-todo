@@ -35,7 +35,12 @@
 
   <div class="flex-1 overflow-auto p-2 max-h-[50vh]">
     {#each data.todos?.filter(a => !a.completed || hideCompleted) as todo, i (i)}
-      <TodoItem {todo} />
+      <TodoItem
+        {todo}
+        updateSaving={(value: boolean) => {
+          saving = value;
+        }}
+      />
     {/each}
   </div>
 
