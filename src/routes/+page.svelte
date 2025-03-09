@@ -23,7 +23,7 @@
   <div class="flex p-4 flex-row items-center">
     <h2 class=" text-xl self-start">Inbox</h2>
     {#if saving}
-      <h2 class="self-center">Saving...</h2>
+      <h2 class="ml-auto">Saving...</h2>
     {/if}
     <div class="ml-auto text-sm justify-self-end">
       <label for=""
